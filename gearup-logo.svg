@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e10600"/>
+      <stop offset="100%" stop-color="#ff2a2a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="128" cy="128" r="108" stroke="url(#redGrad)" stroke-width="18"/>
+
+  <!-- G shape -->
+  <path d="M170 128h-40"
+        stroke="#ffffff"
+        stroke-width="18"
+        stroke-linecap="round"/>
+  <path d="M182 128c0 32-24 58-54 58s-54-26-54-58 24-58 54-58"
+        stroke="#ffffff"
+        stroke-width="18"
+        stroke-linecap="round"/>
+
+  <!-- Accent cut -->
+  <path d="M190 78l-24 24"
+        stroke="url(#redGrad)"
+        stroke-width="14"
+        stroke-linecap="round"/>
+</svg>
