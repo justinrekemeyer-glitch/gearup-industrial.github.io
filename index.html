@@ -1,264 +1,405 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GearUp Industrial | PPE & Industrial Supplies</title>
+  <title>GearUp Industrial | Gloves • PPE • Consumables</title>
+  <meta name="description" content="GearUp Industrial supplies nitrile gloves, PPE, and industrial consumables for businesses and government buyers." />
 
-  <!-- SEO -->
-  <meta name="description" content="GearUp Industrial supplies nitrile gloves and industrial consumables for businesses, contractors, and government buyers." />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-
   <style>
-    :root {
-      --red: #c62828;
-      --dark: #111;
-      --light: #f7f7f7;
-      --gray: #666;
+    :root{
+      --bg:#0b0d10;
+      --card:#11141a;
+      --card2:#0f1318;
+      --text:#e9eef7;
+      --muted:#aab4c3;
+      --line:rgba(255,255,255,.10);
+      --red:#e11d2e;
+      --red2:#b31322;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius:18px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(225,29,46,.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(60,130,246,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
     }
 
-    body {
-      background: white;
-      color: var(--dark);
-      line-height: 1.6;
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:24px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,13,16,.70);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:220px;
+    }
+    .brand img{ width:38px; height:38px; }
+    .brand .title{ font-weight:800; letter-spacing:.2px; }
+    .brand .sub{ color:var(--muted); font-size:.9rem; margin-top:2px; }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--text);
+      font-weight:600;
+      font-size:.95rem;
+      background: rgba(255,255,255,.03);
+    }
+    .cta{
+      padding:10px 14px;
+      border-radius:999px;
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      color:white;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 30px rgba(225,29,46,.25);
     }
 
-    header {
-      background: #000;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    /* Hero */
+    .hero{
+      padding:44px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height:1.15;
+      letter-spacing:-.4px;
+    }
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:1.05rem;
+      max-width:58ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:12px;
+      font-weight:800;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      border-color: rgba(255,255,255,.08);
+      color:white;
     }
 
-    header img {
-      height: 40px;
+    .quicklist{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
     }
-
-    header nav a {
-      color: white;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
+    .quicklist li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
     }
-
-    .hero {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #111, #1e1e1e);
-      color: white;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #ccc;
-      font-size: 1.1rem;
-    }
-
-    .hero a {
+    .dot{
+      width:10px; height:10px; border-radius:50%;
       background: var(--red);
-      color: white;
-      padding: 0.9rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 600;
+      margin-top:6px;
+      flex:0 0 auto;
+      box-shadow: 0 0 0 6px rgba(225,29,46,.12);
+    }
+    .quicklist b{ display:block; margin-bottom:2px; }
+    .quicklist span{ color:var(--muted); font-size:.95rem; }
+
+    /* Sections */
+    .section{ padding:18px 0; }
+    .section h2{
+      margin:0 0 12px;
+      font-size:1.55rem;
+      letter-spacing:-.2px;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .card h3{ margin:0 0 6px; font-size:1.05rem; }
+    .card p{ margin:0; color:var(--muted); }
+
+    /* Quote form */
+    .quote-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .quote-left p{ margin:0; color:var(--muted); }
+    form{
+      display:grid;
+      gap:10px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    label{ font-size:.9rem; color:var(--muted); }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      outline:none;
+      font-size:1rem;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(225,29,46,.55);
+      box-shadow: 0 0 0 4px rgba(225,29,46,.15);
+    }
+    textarea{ min-height:120px; resize:vertical; }
+    .submit{
+      padding:12px 14px;
+      border-radius:12px;
+      border:none;
+      cursor:pointer;
+      font-weight:900;
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      color:white;
+      box-shadow: 0 10px 30px rgba(225,29,46,.22);
+    }
+    .tiny{
+      margin-top:8px;
+      font-size:.85rem;
+      color: var(--muted);
     }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: auto;
+    footer{
+      padding:28px 0 40px;
+      color: rgba(255,255,255,.55);
+      text-align:center;
+      font-size:.9rem;
     }
 
-    section h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2rem;
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns:1fr; }
+      .grid3{ grid-template-columns:1fr; }
+      .quote-wrap{ grid-template-columns:1fr; }
     }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .feature {
-      border: 1px solid #ddd;
-      padding: 2rem;
-      border-radius: 6px;
-      text-align: center;
-    }
-
-    .feature h3 {
-      margin-bottom: 0.5rem;
-      color: var(--red);
-    }
-
-    .products {
-      background: var(--light);
-    }
-
-    .product-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .product {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 2rem;
-    }
-
-    .product h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .product p {
-      color: var(--gray);
-    }
-
-    .quote {
-      background: #111;
-      color: white;
-    }
-
-    form {
-      max-width: 600px;
-      margin: auto;
-      display: grid;
-      gap: 1rem;
-    }
-
-    form input,
-    form textarea {
-      padding: 0.75rem;
-      border-radius: 4px;
-      border: none;
-      font-size: 1rem;
-    }
-
-    form textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    form button {
-      background: var(--red);
-      color: white;
-      border: none;
-      padding: 0.9rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #000;
-      color: #aaa;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
+    @media (max-width: 560px){
+      .row{ grid-template-columns:1fr; }
+      .brand{ min-width:auto; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <img src="gearup-logo.svg" alt="GearUp Industrial" />
-  <nav>
-    <a href="#products">Products</a>
-    <a href="#quote">Get a Quote</a>
-  </nav>
-</header>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <img src="gearup-logo.svg" alt="GearUp Industrial logo" />
+        <div>
+          <div class="title">GearUp Industrial</div>
+          <div class="sub">Gloves • PPE • Consumables</div>
+        </div>
+      </div>
 
-<section class="hero">
-  <h1>Industrial PPE & Consumables You Can Rely On</h1>
-  <p>
-    GearUp Industrial supplies high-quality nitrile gloves and industrial consumables
-    for contractors, businesses, and government buyers — with reliable sourcing and competitive pricing.
-  </p>
-  <a href="#quote">Request a Quote</a>
-</section>
-
-<section>
-  <h2>Why GearUp Industrial</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>Bulk & Contract Pricing</h3>
-      <p>Competitive pricing for large orders, repeat customers, and contract buyers.</p>
-    </div>
-    <div class="feature">
-      <h3>Domestic & Overseas Sourcing</h3>
-      <p>Flexible sourcing options to meet availability, compliance, and budget needs.</p>
-    </div>
-    <div class="feature">
-      <h3>Business & Government Ready</h3>
-      <p>Prepared to support commercial, municipal, and federal procurement requirements.</p>
+      <div class="nav">
+        <a class="pill" href="#products">Products</a>
+        <a class="pill" href="#capabilities">Capabilities</a>
+        <a class="cta" href="#quote">Request a Quote</a>
+      </div>
     </div>
   </div>
-</section>
 
-<section id="products" class="products">
-  <h2>Core Products</h2>
-  <div class="product-list">
-    <div class="product">
-      <h3>Nitrile Gloves</h3>
-      <p>Powder-free, textured, multiple thicknesses and sizes for industrial and medical use.</p>
-    </div>
-    <div class="product">
-      <h3>Disposable PPE</h3>
-      <p>Gloves, masks, and protective consumables for daily operational needs.</p>
-    </div>
-    <div class="product">
-      <h3>Industrial Consumables</h3>
-      <p>Expanding catalog of safety and maintenance supplies.</p>
-    </div>
-  </div>
-</section>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="panel">
+          <h1>Industrial PPE & Supplies — fast quotes, reliable sourcing.</h1>
+          <p class="lead">
+            We supply nitrile gloves and essential consumables for shops, contractors, facilities, and government buyers.
+            Spec-matched quotes, bulk pricing, and scheduled delivery options.
+          </p>
 
-<section id="quote" class="quote">
-  <h2>Request a Quote</h2>
+          <div class="hero-actions">
+            <a class="btn primary" href="#quote">Get a Quote</a>
+            <a class="btn" href="#products">View Products</a>
+          </div>
+        </div>
 
-  <form action="https://formspree.io/f/xqeeayry" method="POST">
-    <input type="text" name="name" placeholder="Full Name" required />
-    <input type="email" name="email" placeholder="Email Address" required />
-    <input type="text" name="company" placeholder="Company / Organization" />
-    <input type="tel" name="phone" placeholder="Phone Number" />
-    <textarea name="details" placeholder="What products and quantities are you looking for?" required></textarea>
+        <div class="panel" style="background: linear-gradient(180deg, rgba(225,29,46,.10), rgba(255,255,255,.02));">
+          <ul class="quicklist">
+            <li><span class="dot"></span><div><b>Bulk & contract pricing</b><span>Case, pallet, and recurring orders.</span></div></li>
+            <li><span class="dot"></span><div><b>Spec-matched sourcing</b><span>Thickness, length, cuff, texture, brand requirements.</span></div></li>
+            <li><span class="dot"></span><div><b>Commercial + government ready</b><span>Documentation and structured quoting.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <input type="hidden" name="_subject" value="New Quote Request - GearUp Industrial" />
-    <input type="hidden" name="_redirect" value="https://justinrekmeyer-glitch.github.io/gearup-industrial.github.io/" />
+    <section id="products" class="section">
+      <h2>Core Products</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Nitrile Gloves</h3>
+          <p>Powder-free options, multiple thicknesses and sizes for industrial & facility use.</p>
+        </div>
+        <div class="card">
+          <h3>Disposable PPE</h3>
+          <p>Everyday protection supplies for maintenance, cleaning, and shop environments.</p>
+        </div>
+        <div class="card">
+          <h3>Industrial Consumables</h3>
+          <p>Expanding catalog of safety and maintenance essentials.</p>
+        </div>
+      </div>
+    </section>
 
-    <button type="submit">Submit Quote Request</button>
-  </form>
-</section>
+    <section id="capabilities" class="section">
+      <h2>Capabilities</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Spec Matching</h3>
+          <p>We quote to the details: mil thickness, cuff type, texture, length, packaging, and compliance.</p>
+        </div>
+        <div class="card">
+          <h3>Scheduled Deliveries</h3>
+          <p>Support for repeat shipments and annual/quarterly delivery schedules.</p>
+        </div>
+        <div class="card">
+          <h3>Responsive Quotes</h3>
+          <p>Clear pricing, lead times, and substitutions when needed.</p>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  © 2026 GearUp Industrial LLC · Industrial PPE & Consumables
-</footer>
+    <section id="quote" class="section">
+      <div class="panel">
+        <div class="quote-wrap">
+          <div class="quote-left">
+            <h2>Request a Quote</h2>
+            <p>
+              Tell us what you need and we’ll respond with pricing, lead time, and delivery options.
+            </p>
+            <p class="tiny" style="margin-top:10px;">
+              Tip: Include glove thickness (mil), size range, quantity, and delivery schedule.
+            </p>
+          </div>
+
+          <div class="quote-right">
+            <form action="https://formspree.io/f/xqeeayry" method="POST">
+              <div class="row">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Full name" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@company.com" required />
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label for="company">Company / Agency</label>
+                  <input id="company" name="company" type="text" placeholder="Organization name" />
+                </div>
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="(###) ###-####" />
+                </div>
+              </div>
+
+              <div>
+                <label for="details">What do you need?</label>
+                <textarea id="details" name="details" placeholder="Example: 5 mil nitrile, sizes S–XL, 600 cases, quarterly delivery..." required></textarea>
+              </div>
+
+              <input type="hidden" name="_subject" value="New Quote Request - GearUp Industrial" />
+
+              <button class="submit" type="submit">Send Request</button>
+
+              <div class="tiny">
+                By submitting, you agree to be contacted about your request. No spam.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 GearUp Industrial. All rights reserved.
+    </footer>
+  </main>
 
 </body>
 </html>
