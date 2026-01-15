@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="GearUp Industrial supplies nitrile gloves and industrial consumables for government and commercial buyers." />
+  <title>GearUp Industrial | Gloves & Industrial Consumables</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="gearup-logo.svg" alt="GearUp Industrial logo" class="brand-mark">
+      <div class="brand-text">
+        <strong>GearUp Industrial</strong>
+        <span>Gloves • PPE • Consumables</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#products">Products</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#quote" class="btn">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Industrial-grade gloves and consumables — delivered on time.</h1>
+      <p class="lead">
+        Supplying nitrile gloves today with room to expand into broader industrial and shop consumables.
+        Built for government and commercial buyers.
+      </p>
+
+      <div class="cta-row">
+        <a href="#quote" class="btn">Request a Quote</a>
+        <a href="mailto:sales@gearup-industrial.com" class="btn btn-ghost">Email Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="container">
+    <h2>Products</h2>
+
+    <div class="grid-3">
+      <div class="tile">
+        <h3>Nitrile Gloves</h3>
+        <p>Powder-free, textured fingertips, multiple mil thicknesses and sizes.</p>
+        <ul>
+          <li>5 mil common options</li>
+          <li>Sizes S–XXL</li>
+          <li>Bulk case & pallet quantities</li>
+        </ul>
+      </div>
+
+      <div class="tile">
+        <h3>PPE & Shop Supplies</h3>
+        <p>Expandable category for safety gear and maintenance supplies.</p>
+      </div>
+
+      <div class="tile">
+        <h3>Consumables</h3>
+        <p>Towels, wipes, and frequently used industrial consumables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section alt" id="capabilities">
+  <div class="container">
+    <h2>Capabilities</h2>
+
+    <ul>
+      <li>Bulk glove sourcing</li>
+      <li>Spec-matched quotes</li>
+      <li>Scheduled deliveries</li>
+      <li>Government & commercial ready</li>
+    </ul>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="section" id="quote">
+  <div class="container">
+    <h2>Request a Quote</h2>
+
+    <!-- Replace action URL if using Formspree -->
+    <form class="form" action="https://formspree.io/f/REPLACE_ME" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="company" placeholder="Company / Agency">
+
+      <textarea name="details" rows="6" placeholder="Glove specs, quantities, delivery schedule…" required></textarea>
+
+      <button type="submit" class="btn">Send Request</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> GearUp Industrial. All rights reserved.</p>
+  </div>
+</footer>
+
+</main>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
